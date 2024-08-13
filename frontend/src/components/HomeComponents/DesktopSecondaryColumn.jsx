@@ -5,7 +5,6 @@ import {
   MobileProfileModal,
   Button,
 } from "../index";
-import { randomNamesWithPictures } from "../../constants/Constants";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context/MyContext";
