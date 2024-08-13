@@ -35,7 +35,7 @@ const SignIn = () => {
     try {
       // Make a POST request to the server to log in the user
       const { data } = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/auth/login`,
+        `http://localhost:8000/auth/login`,
         {
           email,
           password,
