@@ -4,6 +4,7 @@ import {
   FaceFrownIcon,
   GlobeAmericasIcon,
   InformationCircleIcon,
+  UserPlusIcon,
 } from "@heroicons/react/24/outline";
 import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { classNames } from "../../utils/Helpers";
@@ -35,7 +36,7 @@ const SearchModal = ({ open, setOpen }) => {
     setQuery(e.target.value);
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/user/searchUser?searchInput=${e.target.value}`,
+        `${import.meta.env.VITE_SERVER_URL}/user/searchUser?searchInput=${e.target.value}`,
         { withCredentials: true }
       );
 
@@ -60,7 +61,7 @@ const SearchModal = ({ open, setOpen }) => {
   const addFriend = async (u) => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/friend/sendFriendRequest`,
+        `${import.meta.env.VITE_SERVER_URL}/friend/sendFriendRequest`,
         {
           recieverId: u._id,
         },
@@ -204,7 +205,7 @@ const SearchModal = ({ open, setOpen }) => {
                                   />
                                 </div>
                               </div>
-                            </div>
+                            </div> 
                           </Combobox.Option>
                         </ul>
                         {/* Mobile profile modal */}
@@ -223,7 +224,9 @@ const SearchModal = ({ open, setOpen }) => {
                           <Button
                             className="inline-flex items-center rounded-full border border-transparent bg-primary-shade text-text-color shadow-sm focus:outline-none focus:ring-2 border-white p-2"
                             clickHandler={() => addFriend(user)}
-                          ></Button>
+                          >
+                            <UserPlusIcon className="mx-auto h-6 w-6" />
+                          </Button>
                         </MobileProfileModal>
                       </li>
                     ))}

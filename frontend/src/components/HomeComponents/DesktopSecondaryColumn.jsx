@@ -19,13 +19,13 @@ const DesktopSecondaryColumn = () => {
   const toast = useToast();
   const { socket, friendReq_response } = useContext(MyContext);
   const navigate = useNavigate();
-
+ 
   // Function to fetch friend requests from the server
   const fetchFriendRequest = async () => {
     console.log("in fetch friend req");
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/friend/fetchFriendRequest",
+        `${import.meta.env.VITE_SERVER_URL}/friend/fetchFriendRequest`,
         { withCredentials: true }
       );
 
@@ -49,7 +49,7 @@ const DesktopSecondaryColumn = () => {
   useEffect(() => {
     fetchFriendRequest();
   }, [friendReq_response]);
-
+ 
   //socket io
   useEffect(() => {
     socket.on("new friend request", () => {
@@ -65,7 +65,7 @@ const DesktopSecondaryColumn = () => {
     const fetchSuggestedUsers = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/user/getSuggestedUsers`,
+          `${import.meta.env.VITE_SERVER_URL}/user/getSuggestedUsers`,
           { withCredentials: true }
         );
         // console.log(data.getSuggestedUsers);
@@ -80,7 +80,7 @@ const DesktopSecondaryColumn = () => {
   const addFriend = async (u) => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/friend/sendFriendRequest`,
+        `${import.meta.env.VITE_SERVER_URL}/friend/sendFriendRequest`,
         {
           recieverId: u._id,
         },
@@ -123,8 +123,8 @@ const DesktopSecondaryColumn = () => {
               {!friendReq
                 ? "No Friend Request"
                 : friendReq?.map((user) => (
-                    <RequestFeed key={user._id} user={user} />
-                  ))}
+                  <RequestFeed key={user._id} user={user} />
+                ))}
             </div>
             {/* Contacts */}
             <div className="flex flex-row items-center justify-between uppercase">
@@ -156,6 +156,7 @@ const DesktopSecondaryColumn = () => {
                   <GoPersonAdd className="h-4 w-4" aria-hidden="true" />
                 </Button>
               </MobileProfileModal>
+
             </div>
           </div>
         </div>
