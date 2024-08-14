@@ -93,16 +93,12 @@ const Signup = () => {
 
     try {
       // Send a POST request to the backend API to create a new account
-      const { data } = await axios.post(
-        `http://localhost:8000/auth/signup`,
-        {
-          username,
-          email,
-          password,
-          pic: image,
-        },
-        { withCredentials: true }
-      );
+      const { data } = await axios.post(`http://localhost:8000/auth/signup`, {
+        username,
+        email,
+        password,
+        pic: image,
+      });
 
       console.log(data);
 

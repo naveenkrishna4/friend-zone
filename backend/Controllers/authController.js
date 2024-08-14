@@ -62,7 +62,11 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, secretKey);
-    res.cookie("token", token, { httpOnly: true, secure:true, sameSite: 'None' });
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     return res
       .status(200)
@@ -76,7 +80,7 @@ const authVerify = async (req, res, next) => {
   console.log("in authVerify");
   try {
     const token = req.cookies.token;
-    // console.log(token);
+    console.log(token);
     if (!token) {
       return res.status(400).json({ error: "no token" });
     }
@@ -93,9 +97,9 @@ const authVerify = async (req, res, next) => {
       if (!user) {
         return res.status(400).json({ error: "user not found" });
       }
-      // console.log(user);
+      console.log(user);
       req.user = user;
-      // res.status(200).json({ user: user });
+      next();
     } catch (error) {
       return res.status(400).json({ error });
     }

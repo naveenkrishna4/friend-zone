@@ -19,8 +19,7 @@ const RequestFeed = ({ user }) => {
         {
           status: "accept",
           requested_user_Id: u.user, // .user => is this user's id
-        },
-        { withCredentials: true }
+        }
       );
 
       setFriendReq_response(!friendReq_response);
@@ -46,8 +45,7 @@ const RequestFeed = ({ user }) => {
         {
           status: "decline",
           requested_user_Id: u.user, // .user => is this user's id
-        },
-        { withCredentials: true }
+        }
       );
 
       setFriendReq_response(!friendReq_response);

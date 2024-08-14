@@ -35,8 +35,7 @@ const Feed = ({ feed }) => {
         {
           comment,
           post: feed,
-        },
-        { withCredentials: true }
+        }
       );
       // console.log(response.data.thisPost.comments);
       setPostComments(response.data.thisPost.comments);

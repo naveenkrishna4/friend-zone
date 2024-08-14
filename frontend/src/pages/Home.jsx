@@ -11,10 +11,7 @@ export default function Home() {
   // Function to fetch posts from the server
   const fetchPosts = async () => {
     try {
-      const { data } = await axios.get(
-        `http://localhost:8000/post/fetch-post`,
-        { withCredentials: true }
-      );
+      const { data } = await axios.get(`http://localhost:8000/post/fetch-post`);
       setPosts(data.posts);
     } catch (error) {
       console.log(error);

@@ -75,8 +75,7 @@ const PostContainer = () => {
         {
           caption,
           img,
-        },
-        { withCredentials: true }
+        }
       );
       console.log(response);
       setCaption("");

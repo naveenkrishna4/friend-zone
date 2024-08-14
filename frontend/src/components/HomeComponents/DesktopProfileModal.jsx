@@ -18,9 +18,7 @@ const DesktopProfileModal = ({ open, setOpen }) => {
   const handleLogout = async () => {
     console.log("in handle logout");
     try {
-      await axios.post(`${import.meta.env.VITE_SERVER_URL}/auth/logout`, null, {
-        withCredentials: true,
-      });
+      await axios.post(`${import.meta.env.VITE_SERVER_URL}/auth/logout`, null);
       localStorage.removeItem("userInfo");
       toast({
         title: `Logout successfull`,

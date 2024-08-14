@@ -16,8 +16,7 @@ const Friends = () => {
   const fetchFriends = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/friend/fetchFriends`,
-        { withCredentials: true }
+        `http://localhost:8000/friend/fetchFriends`
       );
       console.log(data);
       setFriends(data.friends);

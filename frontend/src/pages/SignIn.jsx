@@ -34,14 +34,10 @@ const SignIn = () => {
 
     try {
       // Make a POST request to the server to log in the user
-      const { data } = await axios.post(
-        `http://localhost:8000/auth/login`,
-        {
-          email,
-          password,
-        },
-        { withCredentials: true } // Include credentials to send cookies
-      );
+      const { data } = await axios.post(`http://localhost:8000/auth/login`, {
+        email,
+        password,
+      });
 
       // Log the response data from the server
       console.log(data);
