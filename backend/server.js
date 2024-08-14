@@ -1,9 +1,8 @@
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 // Routers
 const authRouter = require("./Routes/auth");
@@ -15,24 +14,13 @@ const { postRouter } = require("./Routes/post");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:5174",
-  // Add other allowed origins as needed
-];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true); // Allow the request
-    } else {
-      callback(new Error("Not allowed by CORS")); // Deny the request
-    }
-  },
-  credentials: true, // Allow credentials (cookies, etc.)
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "http://127.0.0.1",
+    credentials: true,
+  })
+);
 
 //db
 const mongoose = require("mongoose");

@@ -6,8 +6,8 @@ import {
   BellIcon,
   CogIcon,
 } from "@heroicons/react/24/outline";
-import { FaRobot } from 'react-icons/fa';
- 
+import { FaRobot } from "react-icons/fa";
+
 export const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
   { name: "Photos", href: "/photos", icon: PhotoIcon, current: false },
@@ -23,7 +23,7 @@ export const navigation = [
     href: "/chatbot",
     icon: FaRobot,
     current: false,
-  }
+  },
 ];
 
 export const userNavigation = [

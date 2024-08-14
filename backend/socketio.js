@@ -3,18 +3,10 @@ const socket = require("socket.io");
 let io;
 
 const initializeSocketIO = (server) => {
-  io = socket(server, {
+  io = new socket(server, {
     cors: {
-      origin: "http://localhost:5173",
+      origin: "*",
     },
-  });
-
-  io.on("connection", (socket) => {
-    console.log("user connected (socket)");
-
-    socket.on("disconnect", () => {
-      console.log("user Disconnected (d socket)");
-    });
   });
 };
 

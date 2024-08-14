@@ -36,7 +36,9 @@ const SearchModal = ({ open, setOpen }) => {
     setQuery(e.target.value);
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}/user/searchUser?searchInput=${e.target.value}`,
+        `${import.meta.env.VITE_SERVER_URL}/user/searchUser?searchInput=${
+          e.target.value
+        }`,
         { withCredentials: true }
       );
 
@@ -205,7 +207,7 @@ const SearchModal = ({ open, setOpen }) => {
                                   />
                                 </div>
                               </div>
-                            </div> 
+                            </div>
                           </Combobox.Option>
                         </ul>
                         {/* Mobile profile modal */}
