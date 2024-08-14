@@ -34,10 +34,21 @@ const SignIn = () => {
 
     try {
       // Make a POST request to the server to log in the user
+<<<<<<< HEAD
       const { data } = await axios.post(`http://localhost:8000/auth/login`, {
         email,
         password,
       });
+=======
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_SERVER_URL}/auth/login`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true } // Include credentials to send cookies
+      );
+>>>>>>> parent of fcd6a9b (updated)
 
       // Log the response data from the server
       console.log(data);

@@ -7,7 +7,7 @@ import {
   DesktopSecondaryColumn,
 } from "../components";
 import { MyContext } from "../context/MyContext";
-
+ 
 const Layout = () => {
   const navigate = useNavigate();
   const { loggedUser, socket } = useContext(MyContext);

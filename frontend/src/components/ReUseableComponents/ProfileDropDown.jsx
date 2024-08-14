@@ -29,7 +29,10 @@ const ProfileDropDown = () => {
       // Send a POST request to the logout endpoint to clear the session
       const { data } = await axios.post(
         `http://localhost:8000/auth/logout`,
-        null
+        null,
+        {
+          withCredentials: true,
+        }
       );
 
       // Remove user data from local storage

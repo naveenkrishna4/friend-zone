@@ -36,7 +36,8 @@ const SearchModal = ({ open, setOpen }) => {
     setQuery(e.target.value);
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/user/searchUser?searchInput=${e.target.value}`
+        `http://localhost:8000/user/searchUser?searchInput=${e.target.value}`,
+        { withCredentials: true }
       );
 
       setUsers(data.users);

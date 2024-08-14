@@ -22,9 +22,13 @@ const FriendCard = ({ person, user, setIsOpen, open, setSelectedUser }) => {
   const handleRemoveFriend = async () => {
     console.log(person.name, " is remove");
     try {
-      await axios.post(`http://localhost:8000/friend/removeFriend`, {
-        friend_id: person.user, //id of the user
-      });
+      await axios.post(
+        `${import.meta.env.VITE_SERVER_URL}/friend/removeFriend`,
+        {
+          friend_id: person.user, //id of the user
+        },
+        { withCredentials: true }
+      );
 
       toast({
         title: `${person.name} is successfully removed from your friend list.`,

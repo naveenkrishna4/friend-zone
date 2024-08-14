@@ -99,7 +99,6 @@ const Signup = () => {
         password,
         pic: image,
       });
-
       console.log(data);
 
       // Show a success message using Chakra UI toast

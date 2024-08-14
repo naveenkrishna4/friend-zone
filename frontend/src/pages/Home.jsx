@@ -5,13 +5,21 @@ import { MyContext } from "../context/MyContext";
 
 // Define the Home component using a functional component
 export default function Home() {
+
   const [posts, setPosts] = useState([]);
   const { socket } = useContext(MyContext);
 
   // Function to fetch posts from the server
   const fetchPosts = async () => {
     try {
+<<<<<<< HEAD
       const { data } = await axios.get(`http://localhost:8000/post/fetch-post`);
+=======
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}/post/fetch-post`,
+        { withCredentials: true }
+      );
+>>>>>>> parent of fcd6a9b (updated)
       setPosts(data.posts);
     } catch (error) {
       console.log(error);
