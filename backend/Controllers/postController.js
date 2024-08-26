@@ -8,11 +8,7 @@ const createPost = async (req, res) => {
   if (!img && !caption) {
     return res.status(400).json({ error: "nothing provided for the post" });
   }
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
   try {
     const newPost = new Post({
       owner: loggedUser._id,
@@ -35,13 +31,9 @@ const createPost = async (req, res) => {
 
 const fetchPosts = async (req, res) => {
   try {
-<<<<<<< HEAD
     const posts = await Post.find()
       .sort({ createdAt: -1 })
       .populate("owner", "-password");
-=======
-    const posts = await Post.find().sort({ createdAt: -1 });
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 
     return res.json({ posts });
   } catch (error) {
@@ -59,11 +51,7 @@ const addComment = async (req, res) => {
 
   try {
     const thisPost = await Post.findById(post._id);
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
     thisPost.comments.push({
       text: comment,
       postedBy: {
