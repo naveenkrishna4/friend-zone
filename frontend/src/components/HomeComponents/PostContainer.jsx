@@ -7,12 +7,22 @@ import { BiImageAdd } from "react-icons/bi";
 import { Button, InputFile } from "../index";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom"; // Add this import
 
 const PostContainer = () => {
   // Access the loggedUser from the context using useContext hook
   const { loggedUser } = useContext(MyContext);
 
+=======
+import { Link } from "react-router-dom";  // Add this import
+
+const PostContainer = () => {
+  // Access the loggedUser from the context using useContext hook
+  const { loggedUser } =
+    useContext(MyContext);
+  
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
   const [sentimentResult, setSentimentResult] = useState(null);
   const [caption, setCaption] = useState("");
   const [img, setImg] = useState("");
@@ -65,18 +75,30 @@ const PostContainer = () => {
           });
         });
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
   };
 
   // function to create post
   const createPost = async () => {
     try {
       const response = await axios.post(
+<<<<<<< HEAD
         `http://localhost:8000/post/create-post`,
         {
           caption,
           img,
         },
         { withCredentials: true }
+=======
+        `${import.meta.env.VITE_SERVER_URL}/post/create-post`,
+        {
+          caption,
+          img,
+        }
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       );
       console.log(response);
       setCaption("");
@@ -91,6 +113,7 @@ const PostContainer = () => {
       console.log(error);
     }
     try {
+<<<<<<< HEAD
       const response = await fetch("http://localhost:5000/analyze_sentiment", {
         method: "POST",
         headers: {
@@ -103,6 +126,20 @@ const PostContainer = () => {
         throw new Error("Network response was not ok");
       }
 
+=======
+      const response = await fetch('http://localhost:5000/analyze_sentiment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: caption }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       const data = await response.json();
       if (data.sentiment !== null) {
         setSentimentResult(data.sentiment.toString());
@@ -110,8 +147,14 @@ const PostContainer = () => {
         // Handle the case where data.sentiment is null (if needed)
         setSentimentResult("Sentiment data is null");
       }
+<<<<<<< HEAD
     } catch (error) {
       console.error("Error:", error.message);
+=======
+      
+    } catch (error) {
+      console.error('Error:', error.message);
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
     }
   };
 
@@ -177,7 +220,11 @@ const PostContainer = () => {
                   name="userPhoto"
                   onChange={(e) => imgUpload(e.target.files[0])} // Log a message when an image is uploaded (you may implement image upload logic here)
                 />
+<<<<<<< HEAD
               </div>
+=======
+              </div> 
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
             </div>
           </div>
         </div>
@@ -185,6 +232,7 @@ const PostContainer = () => {
       {sentimentResult === "0" && (
         <div className="bg-gray-200 text-center p-4 rounded-md">
           <p className="text-lg text-gray-800">
+<<<<<<< HEAD
             Don't be depressed. If you need help, feel free to talk to our
             assistant.
           </p>
@@ -194,6 +242,15 @@ const PostContainer = () => {
               here
             </Link>
             .
+=======
+            Don't be depressed. If you need help, feel free to talk to our assistant.
+          </p>
+          <p className="text-sm text-gray-600 mt-2">
+            You can start a conversation with our assistant 
+            <Link to="/chatbot" className="ml-1 underline">
+              here
+            </Link>.
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
           </p>
           <p className="text-sm text-gray-600 mt-2">
             Here are some resources:

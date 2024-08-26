@@ -77,13 +77,24 @@ const login = async (req, res) => {
 };
 
 const authVerify = async (req, res, next) => {
+<<<<<<< HEAD
   try {
     const token = req.cookies.token;
+=======
+  console.log("in authVerify");
+  try {
+    const token = req.cookies.token;
+    console.log(token);
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
     if (!token) {
       return res.status(400).json({ error: "no token" });
     }
     try {
       const verify = jwt.verify(token, secretKey);
+<<<<<<< HEAD
+=======
+      console.log(verify);
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       if (!verify) {
         return res.status(400).json({ error: "invalid token!" });
       }
@@ -94,7 +105,13 @@ const authVerify = async (req, res, next) => {
       if (!user) {
         return res.status(400).json({ error: "user not found" });
       }
+<<<<<<< HEAD
       req.user = user;
+=======
+      console.log(user);
+      req.user = user;
+      next();
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
     } catch (error) {
       return res.status(400).json({ error });
     }

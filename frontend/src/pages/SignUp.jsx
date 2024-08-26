@@ -93,6 +93,7 @@ const Signup = () => {
 
     try {
       // Send a POST request to the backend API to create a new account
+<<<<<<< HEAD
       const { data } = await axios.post(
         `http://localhost:8000/auth/signup`,
         {
@@ -104,6 +105,14 @@ const Signup = () => {
         { withCredentials: true }
       );
 
+=======
+      const { data } = await axios.post(`http://localhost:8000/auth/signup`, {
+        username,
+        email,
+        password,
+        pic: image,
+      });
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       console.log(data);
 
       // Show a success message using Chakra UI toast

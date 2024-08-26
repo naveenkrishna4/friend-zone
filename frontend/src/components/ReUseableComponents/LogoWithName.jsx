@@ -1,6 +1,10 @@
 // Import the Logo component from the "../index.js" file
 import { Logo } from "../index.js";
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 // Define the LogoWithName component
 const LogoWithName = () => {
   return (

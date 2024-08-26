@@ -1,7 +1,11 @@
 const Notification = require("../Models/notificationSchema");
 const User = require("../Models/userSchema");
 const { getIO } = require("../socketio");
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 const send_request = async (req, res) => {
   try {
     const { recieverId } = req.body;
@@ -71,6 +75,10 @@ const respond_to_request = async (req, res) => {
     const reciever = await User.findById(requested_user_Id);
     reciever.friends.push({
       user: loggedUser._id,
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       name: loggedUser.username,
       email: loggedUser.email,
       pic: loggedUser.pic,
