@@ -70,7 +70,9 @@ const DesktopSecondaryColumn = () => {
           { withCredentials: true }
         );
         // console.log(data.getSuggestedUsers);
-        setSuggestedUsers(data.getSuggestedUsers);
+        setSuggestedUsers(
+          Array.isArray(data.getSuggestedUsers) ? data.getSuggestedUsers : []
+        );
       } catch (error) {
         console.log(error);
       }
@@ -129,7 +131,7 @@ const DesktopSecondaryColumn = () => {
             </div>
             {/* Contacts */}
             <div className="flex flex-row items-center justify-between uppercase">
-              <p className="font-semibold">CONTACTS</p>
+              <p className="font-semibold">add friends</p>
             </div>
             <div className="flex flex-col gap-2 mt-4">
               <div className="py-8">

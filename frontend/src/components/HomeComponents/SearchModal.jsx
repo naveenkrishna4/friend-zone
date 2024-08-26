@@ -39,7 +39,6 @@ const SearchModal = ({ open, setOpen }) => {
         `http://localhost:8000/user/searchUser?searchInput=${e.target.value}`,
         { withCredentials: true }
       );
-
       setUsers(data.users);
     } catch (error) {
       if (error.response.data.error === "no token") {

@@ -23,15 +23,18 @@ const searchUser = async (req, res) => {
 const getSuggestedUser = async (req, res) => {
   const loggedUser = req.user;
   try {
-    const users = await User.find();
-
-    const getSuggestedUsers = users.filter(
-      (e) => !e._id.equals(loggedUser._id)
+    const loggedUserWithFriends = await User.findById(loggedUser._id).populate(
+      "friends.user"
     );
-
+    const friendIds = loggedUserWithFriends.friends.map((friend) =>
+      friend.user._id.toString()
+    );
+    const getSuggestedUsers = await User.find({
+      _id: { $nin: [loggedUser._id, ...friendIds] },
+    });
     return res.status(200).json({ getSuggestedUsers });
   } catch (error) {
-    return res.status(400).json({ error: "failed to get suggested users" });
+    return res.status(400).json({ error: "Failed to get suggested users" });
   }
 };
 

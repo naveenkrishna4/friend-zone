@@ -1,7 +1,7 @@
 const Notification = require("../Models/notificationSchema");
 const User = require("../Models/userSchema");
 const { getIO } = require("../socketio");
- 
+
 const send_request = async (req, res) => {
   try {
     const { recieverId } = req.body;
@@ -71,7 +71,6 @@ const respond_to_request = async (req, res) => {
     const reciever = await User.findById(requested_user_Id);
     reciever.friends.push({
       user: loggedUser._id,
-
       name: loggedUser.username,
       email: loggedUser.email,
       pic: loggedUser.pic,

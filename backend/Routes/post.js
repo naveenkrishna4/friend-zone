@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.post("/create-post", authVerify, createPost);
 router.get("/fetch-post", authVerify, fetchPosts);
-
 router.post("/add-comment", authVerify, addComment);
 
 module.exports.postRouter = router;
