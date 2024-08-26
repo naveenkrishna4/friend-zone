@@ -3,11 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
-<<<<<<< HEAD
 const PORT = 8000;
-=======
-const PORT = process.env.PORT || 8000;
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 
 // Routers
 const authRouter = require("./Routes/auth");
@@ -19,25 +15,12 @@ const { postRouter } = require("./Routes/post");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-<<<<<<< HEAD
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-=======
-
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 
 //db
 const mongoose = require("mongoose");
 const db =
   "mongodb+srv://naveen:Naveen4@users.pgffupa.mongodb.net/?retryWrites=true&w=majority&appName=Users";
-<<<<<<< HEAD
-=======
-
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 mongoose
   .connect(db, {
     useNewUrlParser: true,

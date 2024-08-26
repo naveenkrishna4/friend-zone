@@ -15,20 +15,12 @@ const RequestFeed = ({ user }) => {
     console.log(u);
     try {
       const response = await axios.post(
-<<<<<<< HEAD
         `http://localhost:8000/friend/respond_FriendRequest`,
         {
           status: "accept",
           requested_user_Id: u.user, // .user => is this user's id
         },
         { withCredentials: true }
-=======
-        `${import.meta.env.VITE_SERVER_URL}/friend/respond_FriendRequest`,
-        {
-          status: "accept",
-          requested_user_Id: u.user, // .user => is this user's id
-        }
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       );
 
       setFriendReq_response(!friendReq_response);
@@ -50,20 +42,12 @@ const RequestFeed = ({ user }) => {
     console.log(u);
     try {
       const response = await axios.post(
-<<<<<<< HEAD
         `http://localhost:8000/friend/respond_FriendRequest`,
         {
           status: "decline",
           requested_user_Id: u.user, // .user => is this user's id
         },
         { withCredentials: true }
-=======
-        `${import.meta.env.VITE_SERVER_URL}/friend/respond_FriendRequest`,
-        {
-          status: "decline",
-          requested_user_Id: u.user, // .user => is this user's id
-        }
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       );
 
       setFriendReq_response(!friendReq_response);

@@ -39,10 +39,6 @@ const SearchModal = ({ open, setOpen }) => {
         `http://localhost:8000/user/searchUser?searchInput=${e.target.value}`,
         { withCredentials: true }
       );
-<<<<<<< HEAD
-=======
-
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       setUsers(data.users);
     } catch (error) {
       if (error.response.data.error === "no token") {
@@ -64,18 +60,11 @@ const SearchModal = ({ open, setOpen }) => {
   const addFriend = async (u) => {
     try {
       const response = await axios.post(
-<<<<<<< HEAD
         `http://localhost:8000/friend/sendFriendRequest`,
         {
           recieverId: u._id,
         },
         { withCredentials: true }
-=======
-        `${import.meta.env.VITE_SERVER_URL}/friend/sendFriendRequest`,
-        {
-          recieverId: u._id,
-        }
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       );
 
       toast({

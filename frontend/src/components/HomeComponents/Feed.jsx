@@ -31,7 +31,6 @@ const Feed = ({ feed }) => {
     console.log(feed);
     try {
       const response = await axios.post(
-<<<<<<< HEAD
         `http://localhost:8000/post/add-comment`,
         {
           comment,
@@ -39,15 +38,6 @@ const Feed = ({ feed }) => {
         },
         { withCredentials: true }
       );
-=======
-        `${import.meta.env.VITE_SERVER_URL}/post/add-comment`,
-        {
-          comment,
-          post: feed,
-        }
-      );
-      // console.log(response.data.thisPost.comments);
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       setPostComments(response.data.thisPost.comments);
       setComment("");
     } catch (error) {
@@ -102,37 +92,6 @@ const Feed = ({ feed }) => {
           className="w-full object-cover rounded-br-md rounded-bl-md"
           src={feed.content.pic}
         />
-<<<<<<< HEAD
-=======
-        {/*  */}
-        <div className="flex flex-row w-full items-center justify-between px-2 pt-4">
-          {/* Like button */}
-          {/* <span
-            onClick={() => console.log("image liked")}
-            className="flex flex-row items-center justify-center"
-          >
-            <AiOutlineLike className="w-7 h-7" />
-            <p className="font-bold ml-1">Like</p>
-          </span> */}
-          {/* Dislike button */}
-          {/* <span
-            onClick={() => console.log("image disliked")}
-            className="flex flex-row items-center justify-center"
-          >
-            <AiOutlineDislike className="w-7 h-7" />
-            <p className="font-bold ml-1">Dislike</p>
-          </span> */}
-          {/* Share button */}
-          {/* <span
-            onClick={() => console.log("image share")}
-            className="flex flex-row items-center justify-center"
-          >
-            <BsShare className="w-5 h-5" />
-            <p className="font-bold ml-1">Share</p>
-          </span> */}
-        </div>
-        {/*  */}
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
         <div className="w-full">
           <div className="flex flex-row items-center px-2 w-full pt-5">
             <img
@@ -228,11 +187,6 @@ const Feed = ({ feed }) => {
     </div>
   );
 };
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 // PropTypes to define the expected prop types for the Feed component
 Feed.propTypes = {
   feed: PropTypes.object.isRequired,

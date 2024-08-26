@@ -34,29 +34,14 @@ const SignIn = () => {
 
     try {
       // Make a POST request to the server to log in the user
-<<<<<<< HEAD
       const { data } = await axios.post(
         `http://localhost:8000/auth/login`,
-=======
-<<<<<<< HEAD
-      const { data } = await axios.post(`http://localhost:8000/auth/login`, {
-        email,
-        password,
-      });
-=======
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/auth/login`,
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
         {
           email,
           password,
         },
         { withCredentials: true } // Include credentials to send cookies
       );
-<<<<<<< HEAD
-=======
->>>>>>> parent of fcd6a9b (updated)
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 
       // Log the response data from the server
       console.log(data);
@@ -128,10 +113,6 @@ const SignIn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-<<<<<<< HEAD
-=======
-          <br></br>
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
           <PrimaryButton type="submit">Sign In</PrimaryButton>
         </Form>
       </AuthContainer>

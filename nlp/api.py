@@ -14,11 +14,7 @@ from sklearn.naive_bayes import MultinomialNB
 app = Flask(__name__)
 CORS(app)
 
-<<<<<<< HEAD
 # Download NLTK data once
-=======
-# Download NLTK data
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
@@ -28,11 +24,7 @@ tokenizer = RegexpTokenizer(r'\w+')
 en_stopwords = set(stopwords.words('english'))
 wnet = WordNetLemmatizer()
 
-<<<<<<< HEAD
 # Load and preprocess the dataset once
-=======
-# Load and preprocess the dataset
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 df = pd.read_csv("train.csv", encoding='latin1')
 le = LabelEncoder()
 X_train = list(df["text"])[:10000]
@@ -56,11 +48,7 @@ X_clean = [getcleantext(i) for i in X_train]
 cv = CountVectorizer(ngram_range=(1, 2))
 X_vec = cv.fit_transform(X_clean).toarray()
 
-<<<<<<< HEAD
 # Train the model once
-=======
-# Train the model
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 mn = MultinomialNB()
 mn.fit(X_vec, y_train)
 

@@ -5,10 +5,7 @@ import {
   MobileProfileModal,
   Button,
 } from "../index";
-<<<<<<< HEAD
 import { randomNamesWithPictures } from "../../constants/Constants";
-=======
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context/MyContext";
@@ -73,13 +70,9 @@ const DesktopSecondaryColumn = () => {
           { withCredentials: true }
         );
         // console.log(data.getSuggestedUsers);
-<<<<<<< HEAD
         setSuggestedUsers(
           Array.isArray(data.getSuggestedUsers) ? data.getSuggestedUsers : []
         );
-=======
-        setSuggestedUsers(data.getSuggestedUsers);
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       } catch (error) {
         console.log(error);
       }
@@ -90,18 +83,11 @@ const DesktopSecondaryColumn = () => {
   const addFriend = async (u) => {
     try {
       const response = await axios.post(
-<<<<<<< HEAD
         `http://localhost:8000/friend/sendFriendRequest`,
         {
           recieverId: u._id,
         },
         { withCredentials: true }
-=======
-        `${import.meta.env.VITE_SERVER_URL}/friend/sendFriendRequest`,
-        {
-          recieverId: u._id,
-        }
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
       );
 
       toast({
@@ -145,11 +131,7 @@ const DesktopSecondaryColumn = () => {
             </div>
             {/* Contacts */}
             <div className="flex flex-row items-center justify-between uppercase">
-<<<<<<< HEAD
               <p className="font-semibold">add friends</p>
-=======
-              <p className="font-semibold">CONTACTS</p>
->>>>>>> ce3fac772431a8c8e9511f59f433c727b141f23c
             </div>
             <div className="flex flex-col gap-2 mt-4">
               <div className="py-8">
