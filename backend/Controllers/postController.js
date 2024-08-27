@@ -31,10 +31,18 @@ const createPost = async (req, res) => {
 
 const fetchPosts = async (req, res) => {
   try {
-    const posts = await Post.find()
-      .sort({ createdAt: -1 })
-      .populate("owner", "-password");
-
+    const { filter } = req.query;
+    let posts = [];
+    if (filter === "friends") {
+      const friendIds = req.user.friends.map((friend) => friend.user);
+      posts = await Post.find({ owner: { $in: friendIds } })
+        .sort({ createdAt: -1 })
+        .populate("owner", "-password");
+    } else {
+      posts = await Post.find()
+        .sort({ createdAt: -1 })
+        .populate("owner", "-password");
+    }
     return res.json({ posts });
   } catch (error) {
     console.log(error);

@@ -114,7 +114,7 @@ const DesktopSecondaryColumn = () => {
         <div className="h-full px-5">
           <div>
             {/* Friend Requests */}
-            <div className="py-8">
+            <div className="py-8 ">
               <div className="flex flex-row items-center justify-between uppercase">
                 <p className="font-semibold">Recent</p>
                 {/* Show the number of friend requests in a notification */}
@@ -122,6 +122,7 @@ const DesktopSecondaryColumn = () => {
                   total={friendReq ? friendReq.length : 0}
                 />
               </div>
+              <br></br>
               {/* Render friend requests or "No Friend Request" if none */}
               {!friendReq
                 ? "No Friend Request"
@@ -129,12 +130,12 @@ const DesktopSecondaryColumn = () => {
                     <RequestFeed key={user._id} user={user} />
                   ))}
             </div>
-            {/* Contacts */}
-            <div className="flex flex-row items-center justify-between uppercase">
-              <p className="font-semibold">add friends</p>
-            </div>
-            <div className="flex flex-col gap-2 mt-4">
+            <div className="flex flex-col gap-2">
               <div className="py-8">
+                <div className="flex flex-row items-center justify-between uppercase">
+                  <p className="font-semibold">add friends</p>
+                </div>
+                <br></br>
                 {/* Render contact cards with name, picture, and status */}
                 {suggestedUsers.map((item) => (
                   <ContactCard
