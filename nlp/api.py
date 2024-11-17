@@ -27,7 +27,7 @@ wnet = WordNetLemmatizer()
 # Load and preprocess the dataset once
 df = pd.read_csv("train.csv", encoding='latin1')
 le = LabelEncoder()
-X_train = list(df["text"])[:10000]
+X_train = list(df["selected_text"])[:10000]
 df_encoded = df.apply(le.fit_transform, axis=0)
 dff = df_encoded.values
 y_train = list(dff[:10000, 3])
